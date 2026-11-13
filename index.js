@@ -29,31 +29,30 @@ function get_data() {
   });
 }
 
-function myFunction(x) {
+function cd_window(x) {
   if (x.matches) {
     $("#cd").hide();
     $("#year").hide();
     $("#info").hide();
   } else {
     get_data();
-
     setInterval(() => {
       get_data();
     }, 5000);
-
-    $("#gif").on("click", function () {
-      window.open(
-        "https://archive.org/details/in.ernet.dli.2015.458601/mode/2up",
-        "_blank",
-      );
-    });
   }
 }
 
 var x = window.matchMedia("(max-width: 1270px)");
 
-myFunction(x);
+cd_window(x);
 
 x.addEventListener("change", function () {
-  myFunction(x);
+  cd_window(x);
+});
+
+$("#gif").on("click", function () {
+  window.open(
+    "https://archive.org/details/in.ernet.dli.2015.458601/mode/2up",
+    "_blank",
+  );
 });
